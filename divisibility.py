@@ -1,16 +1,11 @@
 class Div:
   
+  """ Divisibility criteria by two, three and four. 
+  Function invocation: divisible_by(Parameter1, Parameter2)
+  where Parameter1 can be any natural number and Parameter2 can be 'two', 'three' or 'four'."""
+  
   even_numbers = ['0','2','4','6','8']
   multiples_of_three = ['0','3','6','9']
-  
-  def divisible_by_two_v1(self, number):
-    return number/2 == int(number/2)
-    
-  def divisible_by_two_v2(self, number):
-    last_figure = int(str(number)[-1])
-    while last_figure > 1:
-      last_figure = last_figure - 2
-    return last_figure == 0	
     
   def divisible_by_two(self, number):
     last_figure = str(number)[-1]
@@ -29,24 +24,32 @@ class Div:
     for i in range(len(string_list)):
       int_list = int_list + [int(string_list[i])]
     return sum(int_list)
-    
-def divisible_by_three(self, number):
-	   significant_figures = Div.remove_mod_three_figures(self,number)
-	   if len(significant_figures) >1:
-	    addition = Div.sum_elements(self, significant_figures)
-	    return Div.divisible_by_three(self,addition)
+  
+  def divisible_by_three(self, number):
+	   not_mod_three_figures = Div.remove_mod_three_figures(self,number)
+	   if len(not_mod_three_figures) >1:
+	    addition = Div.sum_elements(self, not_mod_three_figures)
+	    return Div.divisible_by_three(self,addition)							
 	   else:
-	    return len(significant_figures)==0
-	     
+	    return len(not_mod_three_figures)==0
+		
   def divisible_by_four(self,number):
-	  extended_figures = ['0'] + list(str(number))
+	  extended_figures = ['0'] + list(str(number))							# It adds an extra figure to have always at least two digits 
 	  last_figure = extended_figures[-1]
 	  second_last_figure = extended_figures[-2]
 	  if second_last_figure in Div.even_numbers:
 	    return last_figure in ['0','4','8']
 	  else:
 	    return last_figure in ['2','6']
-	   
-	     
-	 
-	 
+	
+  def divisible_by(self, number, divider):
+	  if divider == 'two':
+		  return Div.divisible_by_two(self, number)
+	  elif divider == 'three':
+		  return Div.divisible_by_three(self, number)
+	  elif divider == 'four':
+		  return Div.divisible_by_four(self, number)
+	  else:
+		  print('Second parameter must be \'two\', \'three\' or \'four\'')
+		
+	
