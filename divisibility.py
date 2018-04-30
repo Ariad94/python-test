@@ -34,7 +34,7 @@ class Div:
 	    return len(not_mod_three_figures)==0
 		
   def divisible_by_four(self,number):
-	  extended_figures = ['0'] + list(str(number))							# It adds an extra figure to have always two digits at least
+	  extended_figures = ['0'] + list(str(number))			# It adds an extra figure to have always two digits at least
 	  units = extended_figures[-1]
 	  tens = extended_figures[-2]
 	  if tens in Div.even_numbers:
