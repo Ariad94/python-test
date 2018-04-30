@@ -34,22 +34,15 @@ class Div:
 	    return len(not_mod_three_figures)==0
 		
   def divisible_by_four(self,number):
-	  extended_figures = ['0'] + list(str(number))							# It adds an extra figure to have always at least two digits 
-	  last_figure = extended_figures[-1]
-	  second_last_figure = extended_figures[-2]
-	  if second_last_figure in Div.even_numbers:
-	    return last_figure in ['0','4','8']
+	  extended_figures = ['0'] + list(str(number))							# It adds an extra figure to have always two digits at least
+	  units = extended_figures[-1]
+	  tens = extended_figures[-2]
+	  if tens in Div.even_numbers:
+	    return units in ['0','4','8']
 	  else:
-	    return last_figure in ['2','6']
+	    return units in ['2','6']
+	    
+  functions_dict = {2:divisible_by_two, 3:divisible_by_three, 4:divisible_by_four}
 	
   def divisible_by(self, number, divider):
-	  if divider == 'two':
-		  return Div.divisible_by_two(self, number)
-	  elif divider == 'three':
-		  return Div.divisible_by_three(self, number)
-	  elif divider == 'four':
-		  return Div.divisible_by_four(self, number)
-	  else:
-		  print('Second parameter must be \'two\', \'three\' or \'four\'')
-		
-	
+    return Div.functions_dict[divider](self,number)
