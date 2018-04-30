@@ -2,7 +2,7 @@ class Div:
   
   """ Divisibility criteria by two, three and four. 
   Function invocation: divisible_by(Parameter1, Parameter2)
-  where Parameter1 can be any natural number and Parameter2 can be 'two', 'three' or 'four'."""
+  where Parameter1 can be any natural number and Parameter2 can be 2, 3 or 4."""
   
   even_numbers = ['0','2','4','6','8']
   multiples_of_three = ['0','3','6','9']
