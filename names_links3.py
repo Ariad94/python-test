@@ -4,7 +4,7 @@ def create_link_table:
 	counter = range(len(anchors_names))
 	with open(word + ".txt", "w") as file: 
 		for i in counter:
-			file.write(i+1\tanchors_names[i]\tcite_names[i]) 
+			file.write(i+1,"\t",anchors_names[i],"\t",cite_names[i]) 
 
 
 class LinkTable(word):
